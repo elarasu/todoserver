@@ -1,0 +1,34 @@
+# Latest Django
+django==1.8.3
+
+# for bcrypt passwords
+bcrypt
+
+# for oauth2 provider
+django-oauth-toolkit==0.9.0
+
+# rest framework
+djangorestframework==3.2.0
+djoser==0.3.1
+
+# Templates
+django_compressor
+
+# pinax
+pinax-theme-bootstrap==5.7.3
+django-user-accounts==1.0.2
+metron==1.3.5
+eventlog==0.11.0
+django-jsonfield==0.9.13
+
+# device,channel,group
+pinax-teams
+django-push-notifications==1.2.1
+django-uuidfield
+django-polymorphic
+
+# For the persistance stores
+psycopg2>=2.6
+
+# Administration
+django-debug-toolbar
