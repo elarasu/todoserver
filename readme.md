@@ -26,6 +26,6 @@ To run the server
 
 ### Todo List Management
 
-   curl -X POST -H 'Authorization: Bearer kGbUVzaKDrGNVx1KkSQgk2zoRKX4q5' 'http://localhost:5080/api/todos' --data 'task=where'
-   curl -X PUT  -H 'Authorization: Bearer kGbUVzaKDrGNVx1KkSQgk2zoRKX4q5' 'http://localhost:5080/api/todos/2' --data 'task=changed+here'
-   curl -X DELETE -H 'Authorization: Bearer kGbUVzaKDrGNVx1KkSQgk2zoRKX4q5' 'http://localhost:5080/api/todos/2'
+   * curl -X POST -H 'Authorization: Bearer kGbUVzaKDrGNVx1KkSQgk2zoRKX4q5' 'http://localhost:5080/api/todos' --data 'task=where'
+   * curl -X PUT  -H 'Authorization: Bearer kGbUVzaKDrGNVx1KkSQgk2zoRKX4q5' 'http://localhost:5080/api/todos/2' --data 'task=changed+here'
+   * curl -X DELETE -H 'Authorization: Bearer kGbUVzaKDrGNVx1KkSQgk2zoRKX4q5' 'http://localhost:5080/api/todos/2'
