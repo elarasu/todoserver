@@ -74,6 +74,7 @@ INSTALLED_APPS = (
     "push_notifications",
 
     # Local apps, referenced via appname
+    "todo",
 )
 
 # Place bcrypt first in the list, so it will be the default password hashing

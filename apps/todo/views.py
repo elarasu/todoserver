@@ -11,3 +11,6 @@ class TodoViewSet(viewsets.ModelViewSet):
     pagination_class = None
     paginate_by = None
 
+    def perform_create(self, serializer):
+        serializer.save(who=self.request.user)
+

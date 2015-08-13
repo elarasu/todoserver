@@ -15,7 +15,7 @@ class TodoTask(Task):
     """
     A todo task based on Task
     """
-    due = models.DateTimeField()
+    due = models.DateTimeField(blank=True, null=True)
     done = models.BooleanField(default=False)
 
     class Meta:
