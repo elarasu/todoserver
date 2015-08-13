@@ -17,7 +17,8 @@ To run the server
 ./manage.py makemigrations
 ./manage.py migrate
 ./manage.py syncdb
-./manage.py runserver 0.0.0.0:8080 ```
+./manage.py runserver 0.0.0.0:5080 
+```
 
 ## APIs
 
