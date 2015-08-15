@@ -49,7 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'django.contrib.syndication',
     'django.contrib.staticfiles',
-    'django.contrib.gis',
+    #'django.contrib.gis',
 
     # Third-party apps, patches, fixes
 

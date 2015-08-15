@@ -2,6 +2,16 @@
 
 todo api server based on apiserver-tmpl.
 
+## Setup
+```
+virtualenv env
+source env/bin/activate
+pip install -r requirements.txt
+./manage.py makemigrations
+./manage.py migrate
+./manage.py syncdb
+```
+
 ## Instructions
 ```
 source env/bin/activate
@@ -14,9 +24,6 @@ source env/bin/activate
 ### run
 To run the server
 ``` 
-./manage.py makemigrations
-./manage.py migrate
-./manage.py syncdb
 ./manage.py runserver 0.0.0.0:5080 
 ```
 
