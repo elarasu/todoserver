@@ -1,0 +1,1 @@
+[{"fields": {"redirect_uris": "", "name": "test", "client_type": "confidential", "user": 1, "client_id": "client", "skip_authorization": false, "client_secret": "secret", "authorization_grant_type": "password"}, "model": "oauth2_provider.application", "pk": 1}]

@@ -18,8 +18,15 @@ source env/bin/activate
 ```
 
    * go to /oauth/applications/, Client Type: confidential, Authorization Grant Type: Resource owner password-based
-   * curl -v -X POST -d 'client_id=client&client_secret=secret&grant_type=password&username=demo1&password=test123' 'http://localhost:5080/oauth/token/'
-   * curl -H 'Authorization: Bearer vafxhqnGkQXBkux6o8HcDPQ8kIZQJ8' 'http://localhost:5080/api/todos'
+
+### oauth token
+
+   * curl -X POST -d 'client_id=client&client_secret=secret&grant_type=password&username=demo1&password=test123' 'http://localhost:5080/oauth/token/'
+   * export AUTH_HDR='Authorization: Bearer <access-token-here>'
+
+### save oauth fixture
+
+   * python manage.py dumpdata oauth2_provider.application > fixtures/oauth2_provider.application
 
 ### run
 To run the server
@@ -33,6 +40,8 @@ To run the server
 
 ### Todo List Management
 
-   * curl -X POST -H 'Authorization: Bearer kGbUVzaKDrGNVx1KkSQgk2zoRKX4q5' 'http://localhost:5080/api/todos' --data 'task=where'
-   * curl -X PUT  -H 'Authorization: Bearer kGbUVzaKDrGNVx1KkSQgk2zoRKX4q5' 'http://localhost:5080/api/todos/2' --data 'task=changed+here'
-   * curl -X DELETE -H 'Authorization: Bearer kGbUVzaKDrGNVx1KkSQgk2zoRKX4q5' 'http://localhost:5080/api/todos/2'
+   * curl -X GET     -H "$AUTH_HDR" 'http://localhost:5080/api/todos'
+   * curl -X POST    -H "$AUTH_HDR" 'http://localhost:5080/api/todos' --data 'task=where'
+   * curl -X PUT     -H "$AUTH_HDR" 'http://localhost:5080/api/todos/2' --data 'task=changed+here'
+   * curl -X DELETE  -H "$AUTH_HDR" 'http://localhost:5080/api/todos/2'
+
