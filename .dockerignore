@@ -1,0 +1,6 @@
+.git/
+dev.db
+*pyc
+*~
+env/
+
