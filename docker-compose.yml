@@ -1,11 +1,13 @@
 db:
   image: postgres
+  volumes:
+    - /home/vagrant/postgres_data:/var/lib/postgresql
 
 web:
   build: .
   command: python manage.py runserver 0.0.0.0:80
-  volumes:
-    - .:/code
+  #volumes:
+    #- .:/deploy
   ports:
     - "5080:80"
   links:

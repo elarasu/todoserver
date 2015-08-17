@@ -1,8 +1,14 @@
-FROM python:2.7
-ENV PYTHONUNBUFFERED 1
-RUN mkdir /code
-WORKDIR /code
-#ADD requirements.txt /code/
-ADD . /code/
+FROM openmason/fleet-nginx:latest
+
+RUN echo 'root:test123' | chpasswd
+
+RUN mkdir /deploy
+WORKDIR /deploy
+ADD . /deploy/
+RUN \
+  apt-get update; \
+  apt-get install -yq \
+      libpq-dev libffi-dev
 RUN pip install -r requirements.txt
 
+#CMD ["/usr/local/bin/circusd", "/etc/circusd.conf"]
