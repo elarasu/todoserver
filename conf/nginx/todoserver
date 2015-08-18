@@ -1,0 +1,64 @@
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    '' close;
+}
+
+# django site
+upstream todoweb_server {
+  server localhost:4080;
+}
+
+# mqtt websocket endpoint
+upstream ws_mqtt {
+  server localhost:4083;
+}
+
+server {
+ listen   80;
+
+ access_log  /var/log/nginx/todo.access_log main;
+ error_log   /var/log/nginx/todo.error_log;
+
+ server_name  192.168.1.6 192.168.56.1 10.0.2.2 localhost todo g.todo www.todo;
+
+ location /static {
+   alias /deploy/static/;
+ }
+
+ location /site_media {
+   alias /deploy/static/;
+ }
+
+# location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|doc|xls|exe|pdf|ppt|txt|tar|mid|midi|wav|bmp|rtf|js|mov) {
+#   root /deploy/;
+#   access_log   off;
+#   expires      30d;
+# }
+
+# default mqtt path
+ location /mqtt {
+    proxy_pass http://ws_mqtt;
+    proxy_read_timeout 999999999;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+ }
+
+ location / {
+    proxy_pass http://todoweb_server;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto http;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    #proxy_set_header Host $http_host;
+    proxy_redirect off;
+ }
+
+ location ~ /\.ht {
+   deny  all;
+ }
+
+}
