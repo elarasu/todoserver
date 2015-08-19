@@ -18,6 +18,7 @@ source env/bin/activate
 ```
 
    * go to /oauth/applications/, Client Type: confidential, Authorization Grant Type: Resource owner password-based
+   * python manage.py loaddata fixtures/oauth2_provider.json
 
 ### oauth token
 
