@@ -22,8 +22,8 @@ def get_env_setting(setting):
 
 
 # Your project root
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__) + "../../../")
-PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__) + "/../")
+PACKAGE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+PROJECT_ROOT = os.path.abspath(os.path.join(PACKAGE_ROOT, os.pardir))
 BASE_DIR = PACKAGE_ROOT
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 
@@ -41,11 +41,12 @@ ROOT_URLCONF = "todoserver.urls"
 # Application definition
 INSTALLED_APPS = (
     # Django contrib apps
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.admin',
+    'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.humanize',
     'django.contrib.syndication',
     'django.contrib.staticfiles',
@@ -67,14 +68,17 @@ INSTALLED_APPS = (
 
     # external
     "account",
-    "eventlog",
     "metron",
+    "eventlog",
     #"kaleo",
     #"teams",
     "push_notifications",
 
     # Local apps, referenced via appname
     "todo",
+
+    # project
+    "todoserver",
 )
 
 # Place bcrypt first in the list, so it will be the default password hashing
@@ -156,6 +160,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
