@@ -5,10 +5,8 @@
 {% load i18n %}
 
 
-{% block style_base %}
-    <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
-    <link href="{% static "css/site.css" %}" rel="stylesheet">
-    {% block extra_style %}{% endblock %}
+{% block styles %}
+    {% include "_styles.html" %}
 {% endblock %}
 
 
@@ -21,6 +19,10 @@
     {% include "_footer.html" %}
 {% endblock %}
 
+
+{% block scripts %}
+    {% include "_scripts.html" %}
+{% endblock %}
 
 {% block extra_body_base %}
     {% analytics %}
