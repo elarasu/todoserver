@@ -8,3 +8,4 @@ class AppConfig(BaseAppConfig):
 
     def ready(self):
         import_module("todoserver.receivers")
+
