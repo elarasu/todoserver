@@ -68,7 +68,7 @@ def my_handler(sender, **kwargs):
     obj = kwargs.get("instance")
     res = {}
     res['id'] = obj.id
-    res['object'] = TodoSerializer(obj).data
+    res['data'] = TodoSerializer(obj).data
     if kwargs.get("created"):
         res['event']='add'
     else:
