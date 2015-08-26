@@ -64,5 +64,3 @@ def init_mqtt():
     rc = client.run()
     print "completed:", rc
 
-# init mqtt client in a separate thread
-init_mqtt()
