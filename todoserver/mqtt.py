@@ -38,7 +38,11 @@ class MyMQTTClass:
         self._mqttc.publish(topic, jsonStr, qos=1)
 
     def run(self):
-        self._mqttc.connect("localhost")
+        mqttHost='localhost'
+        if 'MQTT_HOST' in os.environ:
+            mqttHost=os.environ['MQTT_HOST'] 
+        print('mqtt server:'+ str(mqttHost))
+        self._mqttc.connect(mqttHost)
 
         rc = 0
         while rc == 0:

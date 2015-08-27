@@ -32,6 +32,7 @@ source env/bin/activate
 ### run
 To run the server
 ``` 
+export MQTT_HOST='192.168.1.13'
 ./manage.py runserver 0.0.0.0:5080 
 ```
 
