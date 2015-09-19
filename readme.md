@@ -31,9 +31,9 @@ source env/bin/activate
 
 ### run
 To run the server
-``` 
+```
 export MQTT_HOST='192.168.1.13'
-./manage.py runserver 0.0.0.0:5080 
+./manage.py runserver 0.0.0.0:5080
 ```
 
 ## APIs
@@ -47,3 +47,10 @@ export MQTT_HOST='192.168.1.13'
    * curl -X PUT     -H "$AUTH_HDR" 'http://localhost:5080/api/todos/2' --data 'task=changed+here'
    * curl -X DELETE  -H "$AUTH_HDR" 'http://localhost:5080/api/todos/2'
 
+
+## Todo
+
+    * circusweb to be fixed
+    * upgrade to postgrest 9.5
+    * upgrade to python3
+    * set password and db stuff from environment variables

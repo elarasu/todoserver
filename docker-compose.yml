@@ -1,7 +1,19 @@
-#db:
-  #image: postgres
-  #volumes:
-    #- /home/vagrant/postgres_data:/var/lib/postgresql
+# create a data only container to save the
+# postgres data
+# - don't change the image on this
+data:
+  image: ubuntu:trusty
+  volumes:
+    - /var/lib/postgresql
+  command: "true"
+
+postgres:
+  restart: always
+  image: openmason/fleet-postgis:latest
+  volumes_from:
+    - data
+  ports:
+    - "5432:5432"
 
 web:
   build: .
@@ -11,7 +23,6 @@ web:
   volumes:
     - .:/deploy
   ports:
-    - "5080:80"
-  #links:
-    #- db
-
+    - "80:80"
+  links:
+    - postgres:postgres

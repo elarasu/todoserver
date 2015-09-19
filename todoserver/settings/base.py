@@ -251,8 +251,11 @@ REST_FRAMEWORK = {
 # Define your database connections
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "/tmp/dev.db",
+        "ENGINE": "django.contrib.gis.db.backends.postgis",
+        "NAME": "todos",
+        'USER': 'docker',
+        'PASSWORD': 'd0cker',
+        'HOST': 'postgres',
     }
 }
 

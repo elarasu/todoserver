@@ -19,7 +19,7 @@ server {
  access_log  /var/log/nginx/todo.access_log main;
  error_log   /var/log/nginx/todo.error_log;
 
- server_name  192.168.1.6 192.168.56.1 10.0.2.2 localhost todo g.todo www.todo;
+ server_name  172.17.0.* 192.168.* 10.0.* localhost todo g.todo www.todo;
 
  location /static {
    alias /deploy/static/;
