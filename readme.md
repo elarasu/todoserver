@@ -2,6 +2,25 @@
 
 todo api server based on apiserver-tmpl.
 
+## init
+```
+psql -h postgres -U docker postgres
+DROP DATABASE todos;
+CREATE DATABASE todos;
+psql -h postgres -U docker todos
+CREATE EXTENSION postgis;
+CREATE EXTENSION postgis_topology;
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py syncdb
+python manage.py collectstatic
+python manage.py loaddata fixtures/sites.json
+python manage.py loaddata fixtures/oauth2_provider.json
+
+```
+
+
 ## Setup
 ```
 virtualenv env
