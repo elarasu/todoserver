@@ -15,6 +15,12 @@ postgres:
   ports:
     - "5432:5432"
 
+msgbus:
+  build: message
+  ports:
+    - "1883:1883"
+    - "7780:7780"
+
 web:
   build: service
   #command: python manage.py runserver 0.0.0.0:80
@@ -26,3 +32,6 @@ web:
     - "80:80"
   links:
     - postgres:postgres
+    - msgbus:msgbus
+  environment:
+    - MQTT_BROKER=msgbus

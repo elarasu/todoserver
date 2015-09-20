@@ -1,5 +1,6 @@
 import paho.mqtt.client as mqtt
 import os
+import socket
 import json
 from threading import Thread
 
@@ -37,10 +38,19 @@ class MyMQTTClass:
         print jsonStr
         self._mqttc.publish(topic, jsonStr, qos=1)
 
+    def hostname_resolves(self, hostname):
+        try:
+            socket.gethostbyname(hostname)
+            return 1
+        except socket.error:
+            return 0
+
     def run(self):
         mqttHost='localhost'
+        if self.hostname_resolves('msgbus')==1:
+            mqttHost='msgbus'
         if 'MQTT_HOST' in os.environ:
-            mqttHost=os.environ['MQTT_HOST'] 
+            mqttHost=os.environ['MQTT_HOST']
         print('mqtt server:'+ str(mqttHost))
         self._mqttc.connect(mqttHost)
 
@@ -67,4 +77,3 @@ def init_mqtt():
     client = MyMQTTClass()
     rc = client.run()
     print "completed:", rc
-

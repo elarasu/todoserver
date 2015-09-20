@@ -41,7 +41,7 @@ source env/bin/activate
 
 ### oauth token
 
-   * curl -X POST -d 'client_id=client&client_secret=secret&grant_type=password&username=demo1&password=test123' 'http://localhost:5080/oauth/token/'
+   * curl -X POST -d 'client_id=client&client_secret=secret&grant_type=password&username=demo1&password=test123' 'http://localhost:4080/oauth/token/'
    * export AUTH_HDR='Authorization: Bearer <access-token-here>'
 
 ### save oauth fixture
@@ -52,7 +52,7 @@ source env/bin/activate
 To run the server
 ```
 export MQTT_HOST='192.168.1.13'
-./manage.py runserver 0.0.0.0:5080
+./manage.py runserver 0.0.0.0:4080
 ```
 
 ## APIs
@@ -61,10 +61,10 @@ export MQTT_HOST='192.168.1.13'
 
 ### Todo List Management
 
-   * curl -X GET     -H "$AUTH_HDR" 'http://localhost:5080/api/todos'
-   * curl -X POST    -H "$AUTH_HDR" 'http://localhost:5080/api/todos' --data 'task=where'
-   * curl -X PUT     -H "$AUTH_HDR" 'http://localhost:5080/api/todos/2' --data 'task=changed+here'
-   * curl -X DELETE  -H "$AUTH_HDR" 'http://localhost:5080/api/todos/2'
+   * curl -X GET     -H "$AUTH_HDR" 'http://localhost:4080/api/todos'
+   * curl -X POST    -H "$AUTH_HDR" 'http://localhost:4080/api/todos' --data 'task=where'
+   * curl -X PUT     -H "$AUTH_HDR" 'http://localhost:4080/api/todos/2' --data 'task=changed+here'
+   * curl -X DELETE  -H "$AUTH_HDR" 'http://localhost:4080/api/todos/2'
 
 
 ## Todo
