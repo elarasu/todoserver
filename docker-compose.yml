@@ -16,12 +16,12 @@ postgres:
     - "5432:5432"
 
 web:
-  build: .
+  build: service
   #command: python manage.py runserver 0.0.0.0:80
   command: /usr/local/bin/circusd /etc/circusd.conf
   # Shortcut to load the latest code to container
   volumes:
-    - .:/deploy
+    - ./service:/deploy
   ports:
     - "80:80"
   links:
