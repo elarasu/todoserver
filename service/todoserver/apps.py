@@ -10,4 +10,3 @@ class AppConfig(BaseAppConfig):
     def ready(self):
         import_module("todoserver.receivers")
         mqtt.init_mqtt()
-

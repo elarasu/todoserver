@@ -23,4 +23,3 @@ class TodoTask(Task):
 
     def __unicode__(self):
         return u'%d %s %d' % (self.id, self.task, self.done)
-

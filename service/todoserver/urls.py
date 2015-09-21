@@ -13,3 +13,6 @@ urlpatterns = patterns('',
     url(r'^api/auth/', include('djoser.urls')),
     url(r"^$", TemplateView.as_view(template_name="homepage.html"), name="home"),
 )
+
+# temporary, to find its home
+from todo import events
