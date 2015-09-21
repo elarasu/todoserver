@@ -41,7 +41,7 @@ class MyMQTTClass:
 
     def run(self):
         #self._mqttc.connect("localhost")
-        self._mqttc.connect("192.168.1.13")
+        self._mqttc.connect("msgbus")
 
         rc = 0
         while rc == 0:
